@@ -1,0 +1,18 @@
+1  name: Super-Linter
+2  
+3  on: push    #will run on the event of being pushed to githib i think
+4  
+5  jobs:         # there is only one job here wiht steps and actons listed below
+6    super-lint:     #  the name is super-lint, u can name whatever
+7      name: Lint code base
+8      runs-on: ubuntu-latest      # the runner is github's preset runner(ubuntu-latest)
+9      steps:     # the steps are listen below
+10       - name: Checkout code       # this is a step
+11         uses: actions/checkout@v2    # this is action because has "uses"
+12 
+13       - name: Run Super-Linter   # also is a step
+14         uses: github/super-linter@v3   # also is a action
+15         env:s                    # not sure what this is 
+16           DEFAULT_BRANCH: main
+17           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+18 
