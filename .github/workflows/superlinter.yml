@@ -1,18 +1,18 @@
 name: Super-Linter
 
-on: push # Will run on the event of code being pushed to GitHub
+on: push
 
-jobs: # There is only one job here with steps and actions listed below
-  super-lint: # This is the internal ID, you can name this whatever you want
+jobs:
+  super-lint:
     name: Lint code base
-    runs-on: ubuntu-latest # The runner is GitHub's preset Ubuntu Linux cloud VM
+    runs-on: ubuntu-latest
     
-    steps: # Starts exactly 4 spaces in (aligned perfectly with runs-on)
-      - name: Checkout code # This is a step
-        uses: actions/checkout@v2 # This is an action because it has "uses"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Run Super-Linter # This is also a step
-        uses: github/super-linter@v3 # This is also an action
-        env: # A settings block used to pass variables and secret keys to the action
+      - name: Run Super-Linter
+        uses: super-linter/super-linter@v5.0.0
+        env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
