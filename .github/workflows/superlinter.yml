@@ -7,7 +7,7 @@ jobs: # There is only one job here with steps and actions listed below
     name: Lint code base
     runs-on: ubuntu-latest # The runner is GitHub's preset Ubuntu Linux cloud VM
     
-    steps: # The sequential list of tasks begins here
+    steps: # Starts exactly 4 spaces in (aligned perfectly with runs-on)
       - name: Checkout code # This is a step
         uses: actions/checkout@v2 # This is an action because it has "uses"
 
